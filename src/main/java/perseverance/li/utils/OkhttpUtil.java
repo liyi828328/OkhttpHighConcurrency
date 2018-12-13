@@ -19,13 +19,13 @@ import java.util.concurrent.TimeUnit;
 public class OkhttpUtil {
 
     /**
-     * 链接超时时间
+     * 链接超时时间,单位秒
      */
-    private static final long CONNECTION_TIMEOUT = 10000;
+    private static final long CONNECTION_TIMEOUT = 15;
     /**
-     * 读写超时时间
+     * 读写超时时间,单位秒
      */
-    private static final long READ_WRITE_TIMEOUT = 20000;
+    private static final long READ_WRITE_TIMEOUT = 30;
     private static volatile OkhttpUtil mInstance;
     private OkHttpClient mOkClient;
 
@@ -60,9 +60,9 @@ public class OkhttpUtil {
         dispatcher.setMaxRequestsPerHost(maxPerHost);
 
         mOkClient = new OkHttpClient().newBuilder()
-                .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
-                .readTimeout(READ_WRITE_TIMEOUT, TimeUnit.MILLISECONDS)
-                .writeTimeout(READ_WRITE_TIMEOUT, TimeUnit.MILLISECONDS)
+                .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(READ_WRITE_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(READ_WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .connectionPool(pool)
                 .dispatcher(dispatcher)
                 .build();
