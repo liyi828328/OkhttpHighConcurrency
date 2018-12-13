@@ -20,11 +20,14 @@ import java.util.Date;
 public class Main {
 
     /**
-     * 最大并发数,根据cpu核数来配置
+     * 使用okhttp进行异步请求时的最大并发数,根据cpu核数来配置
+     * 与外部{@link perseverance.li.Main.MAX_THREAD_POOL_SIZE} 保持一致即可
+     *
+     * 如果
      */
     private static final int MAX_REQUESTS = 100;
     /**
-     * 每个主机最大请求数
+     * 使用okhttp进行异步请求时的最大并发数,每个主机最大请求数
      */
     private static final int MAX_PER_HOST = 10;
     /**
