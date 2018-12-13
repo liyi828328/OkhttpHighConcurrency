@@ -53,6 +53,8 @@ public class OkhttpUtil {
         //默认链接池配置是 5 5 MINUTES
         //这里调整keepalive时间
         ConnectionPool pool = new ConnectionPool(5, 10, TimeUnit.SECONDS);
+        //这里设置了并发请求时的最大并发量
+        //Dispatcher分同步请求和异步请求,setMaxRequests和setMaxRequestsPerHost只在异步的请求起作用
         Dispatcher dispatcher = new Dispatcher();
         dispatcher.setMaxRequests(maxRequests);
         dispatcher.setMaxRequestsPerHost(maxPerHost);
